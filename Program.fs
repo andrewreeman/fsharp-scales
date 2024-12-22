@@ -1,6 +1,7 @@
 ﻿open System
 
 let rand = new Random()
+let next = rand.Next
 
 let cartesian xs ys =
     xs |> Array.collect (fun x -> ys |> Array.map (fun y -> x, y))
@@ -12,7 +13,7 @@ let makeOctave i =
         sprintf "%d Octaves" i
 
 let makeOctaveHand (o, h) = sprintf "%s %s" o h
-let pick (a: string[]) = a.[rand.Next(a.Length)]
+let pick (randNext) (a: string[]) = a.[randNext (a.Length)]
 
 let scales = [| "A"; "Bb"; "B"; "C"; "C#"; "D"; "Eb"; "E"; "F"; "F#"; "G"; "Ab" |]
 let smoothness = [| "stacatto", "legato" |]
@@ -38,6 +39,6 @@ let structures = Array.concat [ [| "Russian"; "Contramotion" |]; octavesAndHands
 let allArrs = [| scales; tonality; structures |]
 let scaleReducer s a = s + " " + a
 
-let pickedComponents = allArrs |> Array.map pick |> Array.reduce scaleReducer
+let pickedComponents = allArrs |> Array.map (pick next) |> Array.reduce scaleReducer
 
 printfn "Scale: %s" pickedComponents
