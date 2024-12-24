@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build: scales.fsproj",
+      "program": "${workspaceFolder}/bin/Debug/net8.0/scales.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "internalConsole"
+    }
+  ]
+}
