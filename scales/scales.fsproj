@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Utils.fs" />
+    <Compile Include="ScaleComponents.fs" />
+    <Compile Include="ScalePicker.fs" />
   </ItemGroup>
 
 </Project>
