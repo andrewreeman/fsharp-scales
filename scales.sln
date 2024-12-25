@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "scales.console", "scales.console.fsproj", "{A4712284-946E-438A-A6CF-B95127BDDAD1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "scales", "scales\scales.fsproj", "{5CD69C75-47E5-449D-A238-B82CDC49DF3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4712284-946E-438A-A6CF-B95127BDDAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4712284-946E-438A-A6CF-B95127BDDAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4712284-946E-438A-A6CF-B95127BDDAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4712284-946E-438A-A6CF-B95127BDDAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD69C75-47E5-449D-A238-B82CDC49DF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD69C75-47E5-449D-A238-B82CDC49DF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD69C75-47E5-449D-A238-B82CDC49DF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD69C75-47E5-449D-A238-B82CDC49DF3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

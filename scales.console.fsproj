@@ -9,4 +9,7 @@
     <Compile Include="ScalePicker.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="scales\scales.fsproj" />
+  </ItemGroup>
 </Project>
