@@ -1,3 +1,3 @@
 ﻿open ScalePickerProg
 
-printfn "Scale: %s" ScalePicker.pickedComponents
+printfn "Scale: %s" (ScalePicker.pickedComponents ())

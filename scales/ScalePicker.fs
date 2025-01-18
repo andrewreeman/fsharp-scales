@@ -11,5 +11,5 @@ module ScalePicker =
 
     let scaleReducer s a = s + " " + a
 
-    let pickedComponents =
+    let pickedComponents () =
         allArrs |> Array.map (pick Utils.next) |> Array.reduce scaleReducer
