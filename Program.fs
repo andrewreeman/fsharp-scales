@@ -1,3 +1,3 @@
-﻿open ScalePickerProg
+﻿open ScalePicker
 
-printfn "Scale: %s" (ScalePicker.pickedComponents ())
+printfn "Scale: %s" (ScalePicker.getRandomScale ())

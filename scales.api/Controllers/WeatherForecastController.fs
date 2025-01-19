@@ -7,7 +7,7 @@ open System.Threading.Tasks
 open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Logging
 open scales.api
-open ScalePickerProg
+open ScalePicker
 
 [<ApiController>]
 [<Route("[controller]")>]
@@ -36,4 +36,4 @@ type WeatherForecastController(logger: ILogger<WeatherForecastController>) =
                  Summary = summaries.[rng.Next(summaries.Length)] } |]
 
     [<HttpGet("scale")>]
-    member _.GetRandomScale() = ScalePicker.pickedComponents ()
+    member _.GetRandomScale() = ScalePicker.getRandomScale ()

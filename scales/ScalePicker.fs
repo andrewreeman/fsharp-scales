@@ -1,4 +1,4 @@
-namespace ScalePickerProg
+namespace ScalePicker
 
 module ScalePicker =
 
@@ -11,5 +11,5 @@ module ScalePicker =
 
     let scaleReducer s a = s + " " + a
 
-    let pickedComponents () =
+    let getRandomScale () =
         allArrs |> Array.map (pick Utils.next) |> Array.reduce scaleReducer

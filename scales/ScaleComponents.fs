@@ -1,4 +1,4 @@
-namespace ScalePickerProg
+namespace ScalePicker
 
 module ScaleComponents =
     let scales = [| "A"; "Bb"; "B"; "C"; "C#"; "D"; "Eb"; "E"; "F"; "F#"; "G"; "Ab" |]

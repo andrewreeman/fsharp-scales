@@ -1,4 +1,4 @@
-namespace ScalePickerProg
+namespace ScalePicker
 
 open System
 
