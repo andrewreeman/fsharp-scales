@@ -4,12 +4,13 @@ WORKDIR /App
 # Copy everything
 COPY . ./
 # Restore as distinct layers
-RUN dotnet restore scales.sln
+RUN dotnet restore scales.api
 # Build and publish a release
-RUN dotnet publish scales.sln -c Release -o out
+RUN dotnet publish scales.api -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0@sha256:6c4df091e4e531bb93bdbfe7e7f0998e7ced344f54426b7e874116a3dc3233ff
 WORKDIR /App
+ENV ASPNETCORE_URLS=http://*:5000
 COPY --from=build-env /App/out .
-ENTRYPOINT ["dotnet", "scales.console.dll"]
+ENTRYPOINT ["dotnet", "scales.api.dll"]
