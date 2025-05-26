@@ -190,3 +190,6 @@
 
 # Nuget artifacts
 **/artifacts/
+
+# Scripts
+**/scripts/
