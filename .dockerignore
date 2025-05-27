@@ -193,3 +193,6 @@
 
 # Scripts
 **/scripts/
+
+# apps
+**/app/ios
