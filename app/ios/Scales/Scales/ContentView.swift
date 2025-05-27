@@ -1,17 +1,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var plistData: ScalesPListData?
     @State private var scale = "Loading scale...";
     
     var body: some View {
-        Text(scale)
-            .onAppear {
+        VStack(spacing: 20)
+        {
+            Text(scale)
+            Button("New")
+            {
                 fetchData()
             }
+        }
+        .onAppear {
+            onAppear()
+        }
+    }
+    
+    private func onAppear()
+    {
+        plistData = getPListData()
+        fetchData()
     }
     
     private func fetchData() {
-        guard let apiUrl = getApiUrl() else { return }
+        guard let apiUrl = URL.init(string: plistData!.apiUrl) else { return }
         let url = apiUrl.appending(path: "scale")
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -30,7 +44,7 @@ struct ContentView: View {
         }.resume()
     }
     
-    private func getApiUrl() -> URL? {
+    private func getPListData() -> ScalesPListData? {
         guard
             let plistUrl = Bundle.main.url(forResource: "Scales", withExtension: "plist"),
             let plistData = try? Data.init(contentsOf: plistUrl)
@@ -38,17 +52,13 @@ struct ContentView: View {
         
         do
         {
-            let plist = try PropertyListDecoder().decode(ScalesPListData.self, from: plistData)
-            return URL.init(string: plist.apiUrl)
+            return try PropertyListDecoder().decode(ScalesPListData.self, from: plistData)
         } catch {
-            DispatchQueue.main.async
-            {
-                scale = "\(error)"
-            }
+            print(error)
             return nil
         }
-        
     }
+
 }
 
 #Preview {
