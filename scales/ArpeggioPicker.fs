@@ -1,14 +1,23 @@
 namespace ScalePicker
 
 module ArpeggioPicker =
+    open ArpeggioComponents
     let private pick = ScalePicker.pick Utils.next
 
-    let private allArrs =
-        [| ArpeggioComponents.keys
-           ArpeggioComponents.chords
-           ArpeggioComponents.styles
-           ArpeggioComponents.hands
-           ArpeggioComponents.octaves |]
-
     let getRandomArpeggio () =
-        allArrs |> Array.map pick |> Array.reduce (fun s a -> s + " " + a)
+        let key = pick keys
+        let chord = pick chords
+
+        let style =
+            pick
+                [| Block.ToString()
+                   Broken.ToString()
+                   Rolling.ToString()
+                   CrossHands.ToString() |]
+        // Get valid hands based on selected style
+        let styleType = styleFromString style
+        let validHands = getValidHandsForStyle styleType |> Array.map handToString
+        let hand = pick validHands
+        let octave = pick octaves
+
+        sprintf "%s %s %s %s %s" key chord style hand octave
