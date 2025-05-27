@@ -1,10 +1,3 @@
-//
-//  ScalesTests.swift
-//  ScalesTests
-//
-//  Created by Andrew Reeman on 26/05/2025.
-//
-
 import Testing
 @testable import Scales
 

@@ -142,3 +142,4 @@ Pods/
 
 # Ignore xcode projects and plists due to potential sensitive data
 Scales.xcodeproj
+Scales/SupportingFiles/Scales.plist
