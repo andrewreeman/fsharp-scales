@@ -8,7 +8,9 @@
   <ItemGroup>
     <Compile Include="Utils.fs" />
     <Compile Include="ScaleComponents.fs" />
+    <Compile Include="ArpeggioComponents.fs" />
     <Compile Include="ScalePicker.fs" />
+    <Compile Include="ArpeggioPicker.fs" />
   </ItemGroup>
 
 </Project>
