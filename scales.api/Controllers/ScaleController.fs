@@ -13,3 +13,6 @@ type ScaleController() =
 
     [<HttpGet("arpeggio")>]
     member _.GetRandomArpeggio() = ArpeggioPicker.getRandomArpeggio ()
+
+    [<HttpGet("exercise")>]
+    member _.GetRandomExercise() = ExercisePicker.getRandomExercise ()

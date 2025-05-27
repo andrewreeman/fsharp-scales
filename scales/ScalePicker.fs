@@ -7,6 +7,7 @@ module ScalePicker =
     let allArrs =
         [| ScaleComponents.scales
            ScaleComponents.tonality
+           ScalePattern.allPatterns
            ScaleComponents.structures |]
 
     let scaleReducer s a = s + " " + a
