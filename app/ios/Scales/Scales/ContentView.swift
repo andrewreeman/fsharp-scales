@@ -7,12 +7,22 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 20)
         {
-            Text(scale)
+            Spacer()
+            Text(scale).font(.custom("Palatino", fixedSize: 24.0))
             Button("New")
             {
                 fetchData()
             }
+            Spacer()
         }
+        .padding(20)
+        .frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        )
         .onAppear {
             onAppear()
         }
@@ -26,7 +36,7 @@ struct ContentView: View {
     
     private func fetchData() {
         guard let apiUrl = URL.init(string: plistData!.apiUrl) else { return }
-        let url = apiUrl.appending(path: "scale")
+        let url = apiUrl.appending(path: "scale/exercise")
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let unwrappedError = error {
