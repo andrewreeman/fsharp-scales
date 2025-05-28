@@ -16,7 +16,10 @@ module ArpeggioPicker =
                    CrossHands.ToString() |]
         // Get valid hands based on selected style
         let styleType = styleFromString style
-        let validHands = getValidHandsForStyle styleType |> Array.map handToString
+
+        let validHands =
+            [| LeftHand; RightHand; BothHands; CrossHands |] |> Array.map handToString
+
         let hand = pick validHands
         let octave = pick octaves
 

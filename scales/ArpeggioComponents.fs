@@ -5,19 +5,18 @@ module ArpeggioComponents =
         | LeftHand
         | RightHand
         | BothHands
+        | CrossHands
 
     type Style =
         | Block
         | Broken
         | Rolling
-        | CrossHands
 
         override this.ToString() =
             match this with
             | Block -> "Block"
             | Broken -> "Broken"
             | Rolling -> "Rolling"
-            | CrossHands -> "Cross-hands"
 
     let keys = [| "A"; "Bb"; "B"; "C"; "C#"; "D"; "Eb"; "E"; "F"; "F#"; "G"; "Ab" |]
 
@@ -37,6 +36,7 @@ module ArpeggioComponents =
         | LeftHand -> "Left hand"
         | RightHand -> "Right hand"
         | BothHands -> "Both hands"
+        | CrossHands -> "Cross hands"
 
     let styleFromString str =
         match str with
@@ -45,12 +45,6 @@ module ArpeggioComponents =
         | "Rolling" -> Rolling
         | "Cross-hands" -> CrossHands
         | _ -> failwithf "Unknown style: %s" str
-
-    // Helper to get valid hands for a style
-    let getValidHandsForStyle =
-        function
-        | CrossHands -> [| BothHands |]
-        | _ -> [| LeftHand; RightHand; BothHands |]
 
     let makeOctave i =
         if i = 1 then
