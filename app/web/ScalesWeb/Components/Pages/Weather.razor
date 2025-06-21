@@ -1,6 +1,7 @@
 ﻿@page "/weather"
 @rendermode InteractiveServer
 
+@inject IConfiguration Configuration
 @inject IHttpClientFactory ClientFactory 
 
 <PageTitle>Exercises</PageTitle>
@@ -10,9 +11,11 @@
 
 @code {
     private string? exercise;
+    private string scalesApiAddress = "";
 
     protected override async Task OnInitializedAsync()
     {
+        scalesApiAddress = Configuration.GetSection("ApiAddresses").GetValue<string>("ScalesApi") ?? "";
         await GenerateNewExercise();
     }
 
@@ -23,7 +26,7 @@
 
     private async Task GenerateNewExercise()
     {
-        using var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/scale/exercise");
+        using var request = new HttpRequestMessage(HttpMethod.Get, scalesApiAddress + "/scale/exercise");
         var client = ClientFactory.CreateClient();
 
         using var response = await client.SendAsync(request);
