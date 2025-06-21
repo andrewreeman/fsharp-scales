@@ -1,7 +1,43 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
+@inject IConfiguration Configuration
+@inject IHttpClientFactory ClientFactory 
 
-<h1>Hello, world!</h1>
+<PageTitle>Exercises</PageTitle>
 
-Welcome to your new app.
+<p>@exercise</p>
+<button class="btn btn-primary" @onclick="OnRefreshClicked">Refresh</button>
+
+@code {
+    private string exercise = "";
+    private string scalesApiAddress = "";
+
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
+    {
+        Console.WriteLine("Initializing Weather component. Current exercise: " + exercise);
+
+        if (isFirstRender)
+        {
+            scalesApiAddress = Configuration.GetSection("ApiAddresses").GetValue<string>("ScalesApi") ?? "";
+            await GenerateNewExercise();
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnRefreshClicked()
+    {
+        await GenerateNewExercise();
+    }
+
+    private async Task GenerateNewExercise()
+    {
+        Console.WriteLine($"Calling Scales API at {scalesApiAddress}/scale/exercise");
+        using var request = new HttpRequestMessage(HttpMethod.Get, scalesApiAddress + "/scale/exercise");
+        var client = ClientFactory.CreateClient();
+
+        using var response = await client.SendAsync(request);
+        var content = await response.Content.ReadAsStringAsync();
+        exercise = content;
+    }
+}
