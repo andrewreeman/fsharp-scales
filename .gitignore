@@ -485,3 +485,4 @@ $RECYCLE.BIN/
 scales.api/appsettings.Development.json
 
 
+app/web/ScalesWeb/appsettings.Development.json
