@@ -43,7 +43,6 @@ module ArpeggioComponents =
         | "Block" -> Block
         | "Broken" -> Broken
         | "Rolling" -> Rolling
-        | "Cross-hands" -> CrossHands
         | _ -> failwithf "Unknown style: %s" str
 
     let makeOctave i =

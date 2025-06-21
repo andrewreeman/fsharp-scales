@@ -13,7 +13,7 @@ module ArpeggioPicker =
                 [| Block.ToString()
                    Broken.ToString()
                    Rolling.ToString()
-                   CrossHands.ToString() |]
+                |]
         // Get valid hands based on selected style
         let styleType = styleFromString style
 
