@@ -32,8 +32,7 @@
 
     private async Task GenerateNewExercise()
     {
-        Console.WriteLine($"Calling Scales API at {scalesApiAddress}/scale/exercise");
-        using var request = new HttpRequestMessage(HttpMethod.Get, scalesApiAddress + "/scale/exercise");
+        using var request = new HttpRequestMessage(HttpMethod.Get, scalesApiAddress + "/exercise");
         var client = ClientFactory.CreateClient();
 
         using var response = await client.SendAsync(request);

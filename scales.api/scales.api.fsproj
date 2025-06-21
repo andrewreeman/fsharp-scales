@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Controllers/ScaleController.fs" />
+    <Compile Include="Controllers/ExerciseController.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
